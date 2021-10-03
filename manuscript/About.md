@@ -1,5 +1,5 @@
 # Secrets of PowerShell Remoting
-Principle author: Don Jones
+Principal author: Don Jones
 Contributing author: Dr. Tobias Weltner
 With contributions by Dave Wyatt and Aleksandar Nikolik
 
