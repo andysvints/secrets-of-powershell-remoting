@@ -1,22 +1,23 @@
 # Secrets of PowerShell Remoting
-Principle author: Don Jones
-Contributing author: Dr. Tobias Weltner
-With contributions by Dave Wyatt and Aleksandar Nikolik
+
+Головний автор: Дон Джонс
+Співавтор: Др. Тобіас Велтнер
+З доповненнями від Дейва Ваятт та Александар Ніколік
 
 ---
 
-Introduced in Windows PowerShell 2.0, Remoting is one of PowerShell's most useful, and most important, core technologies. It enables you to run almost any command that exists on a remote computer, opening up a universe of possibilities for bulk and remote administration. Remoting underpins other technologies, including Workflow, Desired State Configuration, certain types of background jobs, and much more. This guide isn't intended to be a complete document of what Remoting is and does, although it does provide a good introduction. Instead, this guide is designed to document all the little configuration details that don't appear to be documented elsewhere.
+Віддалене керування, яке було представлене в Windows PowerShell 2.0  - є найкориснішою та найважливішою основною технологією PowerShell. Воно дозволяє запускати майже будь-яку команду, яка існує на віддаленому комп’ютері, відкриваючи всесвіт можливостей для масового та віддаленого адміністрування. Віддалене керування підтримує інші технології, зокрема робочий цикл, конфігурацію бажаного стану(DSC), певні типи фонових завдань та багато іншого. Цей довідник не є вичерпним документом,  який описує що таке віддалене керування та що воно робить, але він дає хороший вступ. Натомість цей довідник призначений для документування всіх дрібних деталей конфігурації, які не задокументовані деінде.
 
 ---
 
-This guide is released under the Creative Commons Attribution-NoDerivs 3.0 Unported License. The authors encourage you to redistribute this file as widely as possible, but ask that you do not modify the document.
+Даний довідник випущений під ліцензією Creative Commons Attribution-NoDerivs 3.0. Автори заохочують розповсюдження даного файлу якомога більше, але без внесення змін до документу.
 
-**Was this book helpful?** The author(s) kindly ask(s) that you make a tax-deductible (in the US; check your laws if you live elsewhere) donation of any amount to [The DevOps Collective](https://devopscollective.org/donate/) to support their ongoing work.
+**Чи була ця книга корисною?** Автор(и) люб'язно просять  зробити пожертву, яка підлягає оподаткуванню (в США; уважно читайте закони, якщо живете в інших куточках світу)  будь-якого розміру для [The DevOps Collective](https://devopscollective.org/donate/) для підтримки їхньої поточної роботи.
 
-**Check for Updates!** Our ebooks are often updated with new and corrected content. We make them available in three ways:
+**Перевірте наявність оновлень!** Наші електронні книжки часто оновлюються новим та виправленим вмістом. Ми розповсюджуємо їх трьома способами:
 
-* Our main, authoritative [GitHub organization](https://github.com/devops-collective-inc), with a repo for each book. Visit https://github.com/devops-collective-inc/
-* Our [GitBook page](https://www.gitbook.com/@devopscollective), where you can browse books online, or download as PDF, EPUB, or MOBI. Using the online reader, you can link to specific chapters. Visit https://www.gitbook.com/@devopscollective
-* On [LeanPub](https://leanpub.com/u/devopscollective), where you can download as PDF, EPUB, or MOBI (login required), and "purchase" the books to make a donation to DevOps Collective. You can also choose to be notified of updates. Visit https://leanpub.com/u/devopscollective
+* Наша основна, авторитетна [GitHub організація](https://github.com/devops-collective-inc), яка містить окремий репозиторій для кожної книги.
+* Наша [GitBook сторінка](https://www.gitbook.com/@devopscollective), де ви можете переглядати книги онлайн або завантажити у форматі PDF, EPUB або MOBI. Використовуючи онлайн-читач, ви можете посилатися на конкретний розділ книги.
+* На [LeanPub](https://leanpub.com/u/devopscollective), де ви можете завантажити PDF, EPUB або MOBI (необхідний логін) та "придбати" книги, щоб зробити пожертву для DevOps Collective. Ви також можете отримувати повідомлення про оновлення.
 
-GitBook and LeanPub have slightly different PDF formatting output, so you can choose the one you prefer. LeanPub can also notify you when we push updates. Our main GitHub repo is authoritative; repositories on other sites are usually just mirrors used for the publishing process. GitBook will usually contain our latest version, including not-yet-finished bits; LeanPub always contains the most recent "public release" of any book.
+GitBook та LeanPub мають дещо різне форматування PDF, тому ви можете вибрати той, який вам більше до вподоби. LeanPub також може повідомляти вас, коли ми публікуємо оновлення. Наш головний GitHub репозиторій є авторитетним; репозиторії на інших сайтах, як правило, є лише дзеркалами, які використовуються для процесу публікації. GitBook зазвичай міститиме останню версію, включаючи ще не закінчені уривки; LeanPub завжди містить найновіший "публічний реліз" будь-якої книги.
