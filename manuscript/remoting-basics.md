@@ -193,9 +193,9 @@ Enter-PSSession -ComputerName SERVER2
 C:\RemoteTest.ps1
 ```
 
-If you were to sit and type these commands interactively in the console window on your client computer, this would work (assuming remoting was set up, you had permissions, and all that). However, if you pasted these into a script and ran that script, it wouldn't work. The script would try to run C:\RemoteTest.ps1 _on your local computer. _
+If you were to sit and type these commands interactively in the console window on your client computer, this would work (assuming remoting was set up, you had permissions, and all that). However, if you pasted these into a script and ran that script, it wouldn't work. The script would try to run C:\RemoteTest.ps1 _on your local computer._
 
-The practical upshot of this is that Enter-PSSession is really meant for _interactive use by a human being, _ not for batch use by a script. If you wanted to send a command to a remote computer, from within a script, Invoke-Command is the right way to do it. You can either set up a session in advance (useful if you plan to send more than one command), or you can use a computer name if you only want to send a single command. For example:
+The practical upshot of this is that Enter-PSSession is really meant for _interactive use by a human being,_ not for batch use by a script. If you wanted to send a command to a remote computer, from within a script, Invoke-Command is the right way to do it. You can either set up a session in advance (useful if you plan to send more than one command), or you can use a computer name if you only want to send a single command. For example:
 
 ```
 $session = New-PSSession -ComputerName SERVER2  
